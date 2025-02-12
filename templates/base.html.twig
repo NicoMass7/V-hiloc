@@ -6,6 +6,7 @@
   <title>{% block title %}Welcome!{% endblock %}</title>
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+
   {% block stylesheets %}
   {% endblock %}
 
@@ -15,26 +16,49 @@
 </head>
 
 <body>
+
+  <header>
+    <nav>
+      <a href="{{ path('app_car_index') }}"><img src="{{ asset('img/logo.png') }}" alt="Vehicloc" /></a>
+      <a href="{{ path('app_car_new')}}" class="btn-nav">Ajouter une voiture</a>
+    </nav>
+  </header>
+
   {% block body %}{% endblock %}
+
 </body>
 
-<footer>
-  <h2>Conduire avec nous</h2>
-  <nav>
-    <ul>
-      <li><a href="#">Mentions légales</a></li>
-      <li><a href="#">Nous contacter</a></li>
-      <li>
-        <a href="#"><img src="../assets/icons/instagram.png" alt="Instagram" /></a>
-        <a href="#"><img src="../assets/icons/facebook.png" alt="Facebook" /></a>
-      </li>
-    </ul>
-    <ul>
-      <li><a href="#">Données personnelles</a></li>
-      <li><a href="#">Questions fréquentes</a></li>
-      <li class="copyright">© Véhicloc 2025</li>
-    </ul>
-  </nav>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h2>Conduire avec nous</h2>
+      <ul>
+        <li><a href="#">Mentions légales</a></li>
+        <li><a href="#">Nous contacter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h2>Informations</h2>
+      <ul>
+        <li><a href="#">Données personnelles</a></li>
+        <li><a href="#">Questions fréquentes</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section social">
+      <h2>Suivez-nous</h2>
+      <div class="social-icons">
+        <a href="#"><img src="{{ asset('icons/instagram.png') }}" alt="Instagram" /></a>
+        <a href="#"><img src="{{ asset('icons/facebook.png') }}" alt="Facebook" /></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© Véhiloc 2025 - Tous droits réservés</p>
+  </div>
 </footer>
+
 
 </html>
