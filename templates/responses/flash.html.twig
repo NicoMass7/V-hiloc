@@ -1,5 +1,7 @@
-{% for type, messages in app.flashes %}
-<div class="allert aller-{{ type }}" style="text-align: center;">
-  {{ messages | join('. ')}}
-</div>
+{% for message in app.flashes('error') %}
+<app-flash type="error" message="{{ message }}"></app-flash>
+{% endfor %}
+
+{% for message in app.flashes('success') %}
+<app-flash type="success" message="{{ message }}"></app-flash>
 {% endfor %}

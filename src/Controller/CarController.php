@@ -43,7 +43,7 @@ final class CarController extends AbstractController
     ]);
   }
 
-  #[Route('/{id}', name: 'app_car_show', requirements: ['id' => '\d+'], methods: ['GET'])]
+  #[Route('/{id}', name: 'app_car_show', requirements: ['id' => '\d+'])]
   public function show(?Car $car): Response
   {
     return $this->render('car/show.html.twig', [
@@ -55,7 +55,7 @@ final class CarController extends AbstractController
   public function deleteCar(?Car $car, EntityManagerInterface $em)
   {
     if (!$car) {
-      $this->addFlash('danger', 'Véhicule introuvable.');
+      $this->addFlash('error', 'Véhicule introuvable.');
     } else {
       $em->remove($car);
       $em->flush();
